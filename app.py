@@ -42,5 +42,6 @@ async def root():
 
 @app.get("/zipcode/{zipcode}")
 async def lineups_zipcode(zipcode: int):
+    print(zipcode)
     lineup = Lineups(**test_data)
     return lineup
