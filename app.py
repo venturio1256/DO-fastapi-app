@@ -53,6 +53,7 @@ async def lineups_zipcode(zipcode: int):
     else:
         print("No LineUps found")
     #lineup = Lineups(**test_data)
+    lineup = all_lineups[0]
     return lineup
 
 async def api_call():
