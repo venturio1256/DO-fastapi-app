@@ -44,16 +44,20 @@ async def root():
 @app.get("/zipcode/{zipcode}")
 async def lineups_zipcode(zipcode: int):
     print(zipcode)
+    lineUps = []
     api_url = "http://data.tmsapi.com/v1.1/lineups?country=USA&postalCode=78701&api_key=kua9569t57crx43pdan75m8v"
     async with httpx.AsyncClient() as client:
         response = await client.get(api_url)
         all_lineups = response.json()
     if all_lineups:
         print(all_lineups)
+        for lineup in all_lineups:
+            print(lineup)
+            lineUps.append(Lineups(**lineup))
     else:
         print("No LineUps found")
     #lineup = Lineups(**test_data)
-    lineup = all_lineups[0]
+    #lineup = all_lineups[0]
     return lineup
 
 async def api_call():
