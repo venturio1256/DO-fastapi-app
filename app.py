@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
+import httpx
 
 """
 {
@@ -45,3 +46,6 @@ async def lineups_zipcode(zipcode: int):
     print(zipcode)
     lineup = Lineups(**test_data)
     return lineup
+
+async def api_call():
+    pass
