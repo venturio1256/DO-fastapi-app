@@ -38,7 +38,7 @@ async def lineups_zipcode(zipcode: int):
     print(zipcode)
     lineUps = []
     query_param = "lineups?country=USA&postalCode=" + str(zipcode)
-    api_response = api_call(base_url, query_param, api_key)
+    api_response = await api_call(base_url, query_param, api_key)
     #api_url = "http://data.tmsapi.com/v1.1/lineups?country=USA&postalCode=78701&api_key=kua9569t57crx43pdan75m8v"
     #async with httpx.AsyncClient() as client:
     #    response = await client.get(api_url)
@@ -59,5 +59,8 @@ async def api_call(base_url: str, api_key: str, query_params: str):
     api_url = base_url + query_params + q_api_key
     #api_url = "http://data.tmsapi.com/v1.1/lineups?country=USA&postalCode=78701&api_key=kua9569t57crx43pdan75m8v"
     async with httpx.AsyncClient() as client:
-        response = await client.get(api_url)    
-    return response
+        response = await client.get(api_url)
+    if response.status_code == 200:
+        return response
+    else:
+        return {"Error api call":{response.status_code}}
