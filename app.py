@@ -17,11 +17,11 @@ import httpx
 """
 class Lineups(BaseModel):
     lineupType: str = Field(alias='type')
-    lineupDevice: Optional[str] = Field(alias='device')
+    lineupDevice: str = Field(alias='device', default=None)
     lineupId: str = Field(alias='lineupId')
     lineupName: str = Field(alias='name')
-    lineupLocation: Optional[str] = Field(alias='location')
-    lineupMso: Optional[dict[str, str]] = Field(alias='mso')
+    lineupLocation: str = Field(alias='location', default=None)
+    lineupMso: dict[str, str] = Field(alias='mso', default=None)
 
 test_data = {
         "type": "VMVPD",
