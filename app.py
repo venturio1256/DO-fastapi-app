@@ -1,3 +1,4 @@
+from typing import Annotated, Optional
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 import httpx
@@ -16,11 +17,11 @@ import httpx
 """
 class Lineups(BaseModel):
     lineupType: str = Field(alias='type')
-    lineupDevice: str = Field(alias='device')
+    lineupDevice: Optional[str] = Field(alias='device')
     lineupId: str = Field(alias='lineupId')
     lineupName: str = Field(alias='name')
-    lineupLocation: str = Field(alias='location')
-    lineupMso: dict[str, str] = Field(alias='mso')
+    lineupLocation: Optional[str] = Field(alias='location')
+    lineupMso: Optional[dict[str, str]] = Field(alias='mso')
 
 test_data = {
         "type": "VMVPD",
