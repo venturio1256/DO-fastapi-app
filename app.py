@@ -14,6 +14,19 @@ class Lineups(BaseModel):
     lineupLocation: str = Field(alias='location', default=None)
     lineupMso: dict[str, str] = Field(alias='mso', default=None)
 
+class Channels(BaseModel):
+    channelId: str = Field(alias="channel")
+    channelCallSign: str = Field(alias="callSign")
+    channelStationId: str = Field(alias="stationId")
+    channelAffiliateCallSign: str = Field(alias="affiliateCallSign", default=None)
+    channelAffiliateId: str = Field(alias="affiliateId", default=None)
+    channelSecondaryAffiliateIds: str = Field(alias="secondaryAffiliateIds", default=None)
+    channelName: str = Field(alias="name", default=None)
+    channelBcastLangs: str = Field(alias="bcastLangs", default=None)
+    channelEdLangs: str = Field(alias="edLangs", default=None)
+    channelType: str = Field(alias="type", default=None)
+    channelPreferredImage: dict[str, str] = Field(alias='preferredImage', default=None)
+
 test_data = {
         "type": "VMVPD",
         "device": "X",
@@ -80,5 +93,17 @@ async def lineup_grid(LineupId: int):
     pass
 
 @app.get("/lineup/{lineupId}/listing")
-async def lineup_channels(lineuId: int):
-    pass
+async def lineup_channels(lineupId: int):
+    lineupListing = []
+    query_param = "lineups/" + str(lineupId) + "/channels?"
+    api_response = await api_call(query_param)
+    all_channels = api_response.json()
+    if all_channels: 
+        print(all_channels)
+        for channel in all_channels:
+            print(channel)
+            lineupListing.append(Channels(**channel))
+    else:
+        print("No channels found")
+    return lineupListing
+
