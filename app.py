@@ -93,9 +93,9 @@ async def lineup_grid(LineupId: int):
     pass
 
 @app.get("/lineup/{lineupId}/listing")
-async def lineup_channels(lineupId: int):
+async def lineup_channels(lineupId: str):
     lineupListing = []
-    query_param = "lineups/" + str(lineupId) + "/channels?"
+    query_param = "lineups/" + lineupId + "/channels?"
     api_response = await api_call(query_param)
     all_channels = api_response.json()
     if all_channels: 
