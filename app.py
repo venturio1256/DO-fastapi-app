@@ -26,8 +26,19 @@ test_data = {
         }
     }
 
-app = FastAPI()
+async def api_call(query_params: str):
+    q_api_key = "api_key=" + api_key
+    api_url = base_url + query_params + q_api_key
+    print(api_url)
+    #api_url = "http://data.tmsapi.com/v1.1/lineups?country=USA&postalCode=80230&api_key=kua9569t57crx43pdan75m8v"
+    async with httpx.AsyncClient() as client:
+        response = await client.get(api_url)
+    if response.status_code == 200:
+        return response
+    else:
+        return {"Error api call":{response.status_code}}
 
+app = FastAPI()
 
 @app.get("/")
 async def root():
@@ -37,7 +48,7 @@ async def root():
 async def lineups_zipcode(zipcode: int):
     print(zipcode)
     lineUps = []
-    query_param = "lineups?country=USA&postalCode=" + str(zipcode)
+    query_param = "lineups?country=USA&postalCode=" + str(zipcode) + "&"
     print(query_param)
     api_response = await api_call(query_param)
     #api_url = "http://data.tmsapi.com/v1.1/lineups?country=USA&postalCode=78701&api_key=kua9569t57crx43pdan75m8v"
@@ -55,14 +66,19 @@ async def lineups_zipcode(zipcode: int):
     #lineup = all_lineups[0]
     return lineUps
 
-async def api_call(query_params: str):
-    q_api_key = "&api_key=" + api_key
-    api_url = base_url + query_params + q_api_key
-    print(api_url)
-    #api_url = "http://data.tmsapi.com/v1.1/lineups?country=USA&postalCode=80230&api_key=kua9569t57crx43pdan75m8v"
-    async with httpx.AsyncClient() as client:
-        response = await client.get(api_url)
-    if response.status_code == 200:
-        return response
-    else:
-        return {"Error api call":{response.status_code}}
+@app.get("/lineup/{lineupId}")
+async def lineup_detail(lineupId: str):
+    query_param = "lineups/" + str(lineupId) + "?"
+    api_response = await api_call(query_param)
+    all_details = api_response.json()
+    lineupDetails = Lineups(**all_details)
+    print(lineupDetails)
+    return lineupDetails
+
+@app.get("/lineup/{lineupId}/airings")
+async def lineup_grid(LineupId: int):
+    pass
+
+@app.get("/lineup/{lineupId}/listing")
+async def lineup_channels(lineuId: int):
+    pass
