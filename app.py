@@ -91,8 +91,19 @@ async def lineup_detail(lineupId: str):
     return lineupDetails
 
 @app.get("/lineup/{lineupId}/airings")
-async def lineup_grid(LineupId: int):
-    pass
+async def lineup_grid(lineupId: str):
+    lineupAirings = []
+    query_param = "lineups/" + lineupId + "/grid?startDateTime=2025-06-25T18:00Z&endDateTime=2025-06-25T20:00Z&"
+    api_response = await api_call(query_param)
+    all_airings = api_response.json()
+    if all_airings: 
+        print(all_airings)
+        for airing in all_airings:
+            print(airing)
+            lineupAirings.append(Station(**airing))
+    else:
+        print("No channels found")
+    return lineupAirings
 
 @app.get("/lineup/{lineupId}/listing")
 async def lineup_channels(lineupId: str):
