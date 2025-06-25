@@ -2,6 +2,8 @@ from typing import Optional
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 import httpx
+##### import my libraries
+from Gn_library.models import PreferredImage, Program, Airing, Station
 
 base_url: str = "http://data.tmsapi.com/v1.1/"
 api_key: str = "kua9569t57crx43pdan75m8v"
