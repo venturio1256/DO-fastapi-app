@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 import httpx
 ##### import my libraries
-from Gn_library.models import PreferredImage, Program, Airing, Station
+from gn_library import models
 
 base_url: str = "http://data.tmsapi.com/v1.1/"
 api_key: str = "kua9569t57crx43pdan75m8v"
@@ -100,7 +100,7 @@ async def lineup_grid(lineupId: str):
         print(all_airings)
         for airing in all_airings:
             print(airing)
-            lineupAirings.append(Station(**airing))
+            lineupAirings.append(models.Station(**airing))
     else:
         print("No channels found")
     return lineupAirings
