@@ -74,7 +74,7 @@ async def lineups_zipcode(zipcode: int):
     #api_url = "http://data.tmsapi.com/v1.1/lineups?country=USA&postalCode=78701&api_key=kua9569t57crx43pdan75m8v"
     #async with httpx.AsyncClient() as client:
     #    response = await client.get(api_url)
-    all_lineups = api_response.json()
+    all_lineups = api_response
     if all_lineups: 
         print(all_lineups)
         for lineup in all_lineups:
@@ -90,7 +90,7 @@ async def lineups_zipcode(zipcode: int):
 async def lineup_detail(lineupId: str):
     query_param = "lineups/" + str(lineupId) + "?"
     api_response = await api_call(query_param)
-    all_details = api_response.json()
+    all_details = api_response
     lineupDetails = Lineups(**all_details)
     print(lineupDetails)
     return lineupDetails
