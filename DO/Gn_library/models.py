@@ -1,7 +1,7 @@
 '''
 Gracenote Models
 '''
-from typing import Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field
 
 class PreferredImage(BaseModel):
@@ -23,14 +23,14 @@ class Program(BaseModel):
     titleLang: str = Field(description="The language of the program title.")
     descriptionLang: Optional[str] = Field(default=None, description="The language of the program description.")
     entityType: str = Field(description="The type of entity, e.g., Show.")
-    genres: list[str] = Field(default_factory=list, description="A list of genres the program belongs to.")
+    genres: List[str] = Field(default_factory=list, description="A list of genres the program belongs to.")
     shortDescription: Optional[str] = Field(default=None, description="A short description of the program.")
 
 class Airing(BaseModel):
     startTime: str = Field(description="The start time of the airing in ISO 8601 format.")
     endTime: str = Field(description="The end time of the airing in ISO 8601 format.")
     duration: int = Field(description="The duration of the airing in minutes.")
-    qualifiers: list[str] = Field(default_factory=list, description="A list of qualifiers for the airing, e.g., New, CC.")
+    qualifiers: List[str] = Field(default_factory=list, description="A list of qualifiers for the airing, e.g., New, CC.")
     stationId: str = Field(description="The unique identifier for the station.")
     program: Program = Field(description="The program details associated with this airing.")
 
@@ -38,4 +38,4 @@ class Station(BaseModel):
     stationId: str = Field(description="The unique identifier for the station.")
     callSign: str = Field(description="The call sign of the station.")
     preferredImage: PreferredImage = Field(description="The preferred image details for the station.")
-    airings: list[Airing] = Field(default_factory=list, description="A list of airings scheduled on this station.")
+    airings: List[Airing] = Field(default_factory=list, description="A list of airings scheduled on this station.")

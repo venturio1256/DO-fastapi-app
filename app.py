@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import List, Optional
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 import httpx
