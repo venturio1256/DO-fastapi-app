@@ -96,7 +96,7 @@ async def lineup_detail(lineupId: str):
     return lineupDetails
 
 @app.get("/sports/{SportId}")
-async def lineup_detail(SportId:str):
+async def sport_detail(SportId:str):
     sports = SportId.split(",")
     if sports:
         query_param = "sports/" + str(SportId) + "?"
