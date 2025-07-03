@@ -6,22 +6,27 @@ from pydantic import BaseModel, Field
 
 class OrgImageModel(BaseModel):
     """Defines the structure of the 'preferredImage' object within an organization."""
-    uri: str
+    uri: str = Field(description="The URI for the organization's preferred logo or image.")
 
 class OrganizationModel(BaseModel):
     """Defines the structure of an 'organization' object."""
-    organizationId: str
-    organizationName: str
-    preferredImage: OrgImageModel
-    officialOrg: bool
+    organizationId: str = Field(description="The unique identifier for the sports organization.")
+    organizationName: str = Field(description="The full name of the sports organization (e.g., 'King Super Cup').")
+    preferredImage: OrgImageModel = Field(description="The preferred logo for the organization.")
+    officialOrg: bool = Field(description="A boolean flag indicating if this is an official organization.")
 
 class SportModel(BaseModel):
     """Defines the top-level object for a single sport."""
-    sportsId: str
-    sportsName: str
-    # This field is optional and may not exist on all Sport objects.
-    # We provide a default value of None.
-    organizations: Optional[List[OrganizationModel]] = None
+    sportsId: str = Field(description="The unique identifier for the sport.")
+    sportsName: str = Field(description="The name of the sport (e.g., 'Soccer', 'Archery').")
+    
+    # This field is optional. We set `default=None` to indicate that it
+    # may not be present in all Sport objects.
+    organizations: Optional[List[OrganizationModel]] = Field(
+        default=None,
+        description="A list of organizations associated with this sport. This may be null."
+    )
+
 
 class PreferredImage(BaseModel):
     width: Optional[str] = Field(default=None, description="The width of the image in pixels.")
