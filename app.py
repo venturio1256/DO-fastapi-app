@@ -1,6 +1,6 @@
 from typing import List, Optional
 from fastapi import FastAPI
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ValidationError, Field
 import httpx
 import json
 ##### import my libraries
@@ -104,9 +104,14 @@ async def sport_detail(SportId:str):
         query_param = "sports/all?"
     api_response = await api_call(query_param)
     all_sports = api_response
-    sportDetails = models.SportModel(**all_sports)
-    print(sportDetails)
-    return sportDetails
+    print(type(all_sports))
+    try:
+        sportDetails = models.SportModel(**all_sports)
+        print(sportDetails)
+        return sportDetails
+    except ValidationError as e:
+        print(f"Error mapping "{e})
+        return None
 
 @app.get("/lineup/{lineupId}/airings")
 async def lineup_grid(lineupId: str):
