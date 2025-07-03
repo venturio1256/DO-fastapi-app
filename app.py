@@ -104,7 +104,7 @@ async def sport_detail(SportId:str):
         query_param = "sports/all?"
     api_response = await api_call(query_param)
     all_sports = api_response
-    sportDetails = SportModel(**all_sports)
+    sportDetails = models.SportModel(**all_sports)
     print(sportDetails)
     return sportDetails
 
