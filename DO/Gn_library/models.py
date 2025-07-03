@@ -4,6 +4,25 @@ Gracenote Models
 from typing import List, Optional
 from pydantic import BaseModel, Field
 
+class OrgImageModel(BaseModel):
+    """Defines the structure of the 'preferredImage' object within an organization."""
+    uri: str
+
+class OrganizationModel(BaseModel):
+    """Defines the structure of an 'organization' object."""
+    organizationId: str
+    organizationName: str
+    preferredImage: OrgImageModel
+    officialOrg: bool
+
+class SportModel(BaseModel):
+    """Defines the top-level object for a single sport."""
+    sportsId: str
+    sportsName: str
+    # This field is optional and may not exist on all Sport objects.
+    # We provide a default value of None.
+    organizations: Optional[List[OrganizationModel]] = None
+
 class PreferredImage(BaseModel):
     width: Optional[str] = Field(default=None, description="The width of the image in pixels.")
     height: Optional[str] = Field(default=None, description="The height of the image in pixels.")

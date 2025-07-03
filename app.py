@@ -95,6 +95,19 @@ async def lineup_detail(lineupId: str):
     print(lineupDetails)
     return lineupDetails
 
+@app.get("/sports/{SportId}")
+async def lineup_detail(SportId:str):
+    sports = SportId.split(",")
+    if sports:
+        query_param = "sports/" + str(SportId) + "?"
+    else:
+        query_param = "sports/all?"
+    api_response = await api_call(query_param)
+    all_sports = api_response
+    sportDetails = SportModel(**all_sports)
+    print(sportDetails)
+    return sportDetails
+
 @app.get("/lineup/{lineupId}/airings")
 async def lineup_grid(lineupId: str):
     lineupAirings = []
