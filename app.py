@@ -43,7 +43,9 @@ test_data = {
     }
 
 async def api_call(query_params: str):
-
+    """
+    Generic call to master API
+    """
     q_api_key = "api_key=" + api_key
     api_url = base_url + query_params + q_api_key
     print(api_url)
@@ -51,11 +53,13 @@ async def api_call(query_params: str):
     #api_url = "http://data.tmsapi.com/v1.1/lineups?country=USA&postalCode=80230&api_key=kua9569t57crx43pdan75m8v"
     async with httpx.AsyncClient() as client:
         response = await client.get(api_url)
+        print(response)
     if response.status_code == 200:
-        api_response = response.json()
+        return response.json()
     else:
-        api_response = json.dumps({"Error api call":{response.status_code}})
-    return response.json()
+        error_response = {"Error api call": response.status_code}
+        return json.dumps(error_response)
+    #return response.json()
 
 app = FastAPI()
 
@@ -65,82 +69,129 @@ async def root():
 
 @app.get("/zipcode/{zipcode}")
 async def lineups_zipcode(zipcode: int):
-    api_response = {}
+    """
+    Returns a list of lineups for a country and postal code.
+    """
     print(zipcode)
-    lineUps = []
     query_param = "lineups?country=USA&postalCode=" + str(zipcode) + "&"
     print(query_param)
     api_response = await api_call(query_param)
     #api_url = "http://data.tmsapi.com/v1.1/lineups?country=USA&postalCode=78701&api_key=kua9569t57crx43pdan75m8v"
     #async with httpx.AsyncClient() as client:
     #    response = await client.get(api_url)
-    all_lineups = api_response
-    if all_lineups: 
+    if isinstance(api_response,list) and api_response:
+        lineUps = []
+        lineup = {}
+        all_lineups = api_response
         print(all_lineups)
-        for lineup in all_lineups:
-            print(lineup)
-            lineUps.append(Lineups(**lineup))
+        try:
+            for lineup in all_lineups:
+                print(type(lineup))
+                lineUps.append(Lineups(**lineup))
+            return lineUps
+        except ValidationError as e:
+            print(f"Error mapping {e}")
+            return None
     else:
-        print("No LineUps found")
+        print("No Lineups for this location found")
+        return None
     #lineup = Lineups(**test_data)
     #lineup = all_lineups[0]
-    return lineUps
+    #return lineUps
 
 @app.get("/lineup/{lineupId}")
 async def lineup_detail(lineupId: str):
+    """
+    Returns details for a given lineup.
+    """
     query_param = "lineups/" + str(lineupId) + "?"
     api_response = await api_call(query_param)
-    all_details = api_response
-    lineupDetails = Lineups(**all_details)
-    print(lineupDetails)
-    return lineupDetails
-
-@app.get("/sports/{SportId}")
-async def sport_detail(SportId:str):
-    sports = SportId.split(",")
-    if sports:
-        query_param = "sports/" + str(SportId) + "?"
+    if isinstance(api_response,dict) and api_response:
+        all_details = api_response
+        lineupDetails = {}
+        try:
+            lineupDetails = Lineups(**all_details)
+            print(lineupDetails)
+            return lineupDetails
+        except ValidationError as e:
+            print(f"Error mapping {e}")
+            return None
     else:
-        query_param = "sports/all?"
-    api_response = await api_call(query_param)
-    all_sports = api_response
-    print(type(all_sports))
-    try:
-        sportDetails = models.SportModel(**all_sports)
-        print(sportDetails)
-        return sportDetails
-    except ValidationError as e:
-        print(f"Error mapping "{e})
+        print("No Lineup details found")
         return None
-
+    
 @app.get("/lineup/{lineupId}/airings")
 async def lineup_grid(lineupId: str):
+    """
+    Returns schedule airing and associated program metadata for a lineup to be contained within a TV grid. 
+    Allows for up to 6 hours of schedule metadata for a given date up to 14 days in advance.
+    """
     lineupAirings = []
-    query_param = "lineups/" + lineupId + "/grid?startDateTime=2025-06-25T18:00Z&endDateTime=2025-06-25T18:15Z&size=basic&"
+    query_param = "lineups/" + lineupId + "/grid?startDateTime=2025-07-04T18:00Z&endDateTime=2025-07-04T18:15Z&size=basic&"
     api_response = await api_call(query_param)
-    all_airings = api_response
-    if all_airings: 
-        print(all_airings)
-        for airing in all_airings:
-            print("Airing ",airing)
-            lineupAirings.append(models.Station(**airing))
+    if isinstance(api_response, list) and api_response: 
+        all_airings = api_response
+        #print(all_airings)
+        try:
+            for airing in all_airings:
+                print("Airing ",airing)
+                lineupAirings.append(models.Station(**airing))
+            return lineupAirings
+        except ValidationError as e:
+            print(f"Error mapping {e}")
+            return None
     else:
-        print("No channels found")
-    return lineupAirings
+        print("No airings found")
+        return None
 
 @app.get("/lineup/{lineupId}/listing")
 async def lineup_channels(lineupId: str):
+    """
+    Returns a list of stations and channel positions associated with the lineup provided.
+    """
     api_response = {}
     lineupListing = []
     query_param = "lineups/" + lineupId + "/channels?"
     api_response = await api_call(query_param)
-    all_channels = api_response
-    if all_channels: 
-        print(all_channels)
-        for channel in all_channels:
-            print(channel)
-            lineupListing.append(Channels(**channel))
+    if isinstance(api_response, list) and api_response: 
+        all_channels = api_response
+        #print(all_channels)
+        try:
+            for channel in all_channels:
+                print(channel)
+                lineupListing.append(Channels(**channel))
+            return lineupListing
+        except ValidationError as e:
+            print(f"Error mapping {e}")
+            return None
+
     else:
         print("No channels found")
-    return lineupListing
+        return None
 
+@app.get("/sports/{SportId}")
+async def sport_detail(SportId:str):
+    """
+    Returns all (or specified) sports with associated organizations.
+    """
+    sports = SportId.split(",")
+    if sports:
+        query_param = "sports/" + str(SportId) + "?includeOrg=true&"
+    else:
+        query_param = "sports/all?includeOrg=true&"
+    api_response = await api_call(query_param)
+    if isinstance(api_response,list):
+        all_sports = api_response
+        #print(all_sports)
+        sportDetails = []
+        try:
+            for sport in all_sports:
+                sportDetails.append(models.SportModel(**sport))
+            print(sportDetails)
+            return sportDetails
+        except ValidationError as e:
+            print(f"Error mapping {e}")
+            return None
+    else:
+        print("api_response ", type(api_response))
+        return None
