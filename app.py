@@ -224,6 +224,14 @@ async def sport_detail(SportId:str):
     else:
         query_param = "sports/all?includeOrg=true&"
     api_response = await api_call(query_param)
+    result_response = await response_list(api_response, models.SportModel)
+    if result_response:
+        print("Stations airings:\n ",result_response)
+    else:
+        print("No airings found on the local stations")
+
+    return result_response
+'''    
     if isinstance(api_response,list):
         all_sports = api_response
         #print(all_sports)
@@ -239,3 +247,4 @@ async def sport_detail(SportId:str):
     else:
         print("api_response ", type(api_response))
         return None
+'''
