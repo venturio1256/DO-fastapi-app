@@ -80,8 +80,24 @@ async def response_list(api_response, model):
             print(f"Error mapping {e}")
             return None
     else:
-        print("No Lineups for this location found")
-        return None    
+        print("No list found")
+        return None
+        
+async def response_dict(api_response, model):
+    if isinstance(api_response,dict) and api_response:
+        respDict = {}
+        apidicts = api_response
+        try:
+            respDict = model(**apidicts)
+            print(type(respDict))
+            return respDict
+        except ValidationError as e:
+            print(f"Error mapping {e}")
+            return None
+    else:
+        print("No details found")
+        return None
+
 
 app = FastAPI()
 
@@ -134,6 +150,15 @@ async def lineup_detail(lineupId: str):
     """
     query_param = "lineups/" + str(lineupId) + "?"
     api_response = await api_call(query_param)
+    result_response = await response_dict(api_response, Lineups)
+    if result_response:
+        print("Lineup details:\n ",result_response)
+    else:
+        print("No lineup details found")
+
+    return result_response
+
+    '''
     if isinstance(api_response,dict) and api_response:
         all_details = api_response
         lineupDetails = {}
@@ -147,7 +172,7 @@ async def lineup_detail(lineupId: str):
     else:
         print("No Lineup details found")
         return None
-    
+    '''
 @app.get("/lineup/{lineupId}/airings")
 async def lineup_grid(lineupId: str):
     """
