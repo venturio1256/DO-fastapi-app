@@ -62,6 +62,10 @@ async def api_call(query_params: str):
     #return response.json()
 
 async def response_list(api_response, model):
+    '''
+    Handling of the API response in List format.
+    return the JSON under List object based on BaseModel
+    '''
     if isinstance(api_response,list) and api_response:
         respList = []
         respDict = {}
@@ -181,10 +185,18 @@ async def lineup_channels(lineupId: str):
     """
     Returns a list of stations and channel positions associated with the lineup provided.
     """
-    api_response = {}
-    lineupListing = []
+    #api_response = {}
+    #lineupListing = []
     query_param = "lineups/" + lineupId + "/channels?"
     api_response = await api_call(query_param)
+    result_response = await response_list(api_response, Channels)
+    if result_response:
+        print("Channels available:\n ",result_response)
+    else:
+        print("No channels found on the local stations")
+
+    return result_response
+    '''
     if isinstance(api_response, list) and api_response: 
         all_channels = api_response
         #print(all_channels)
@@ -196,11 +208,11 @@ async def lineup_channels(lineupId: str):
         except ValidationError as e:
             print(f"Error mapping {e}")
             return None
-
+    
     else:
         print("No channels found")
         return None
-
+    '''
 @app.get("/sports/{SportId}")
 async def sport_detail(SportId:str):
     """
