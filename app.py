@@ -61,6 +61,24 @@ async def api_call(query_params: str):
         return json.dumps(error_response)
     #return response.json()
 
+async def response_list(api_response, model):
+    if isinstance(api_response,list) and api_response:
+        respList = []
+        respDict = {}
+        apilists = api_response
+        print(apilists)
+        try:
+            for respDict in apilists:
+                print(type(respDict))
+                respList.append(model(**respDict))
+            return respList
+        except ValidationError as e:
+            print(f"Error mapping {e}")
+            return None
+    else:
+        print("No Lineups for this location found")
+        return None    
+
 app = FastAPI()
 
 @app.get("/")
@@ -76,9 +94,15 @@ async def lineups_zipcode(zipcode: int):
     query_param = "lineups?country=USA&postalCode=" + str(zipcode) + "&"
     print(query_param)
     api_response = await api_call(query_param)
-    #api_url = "http://data.tmsapi.com/v1.1/lineups?country=USA&postalCode=78701&api_key=kua9569t57crx43pdan75m8v"
-    #async with httpx.AsyncClient() as client:
-    #    response = await client.get(api_url)
+
+    result_response = await response_list(api_response, Lineups)
+    if result_response:
+        print("LineUps:\n ",result_response)
+    else:
+        print("No Lineups for this location found")
+
+    return result_response
+    '''
     if isinstance(api_response,list) and api_response:
         lineUps = []
         lineup = {}
@@ -98,7 +122,7 @@ async def lineups_zipcode(zipcode: int):
     #lineup = Lineups(**test_data)
     #lineup = all_lineups[0]
     #return lineUps
-
+    '''
 @app.get("/lineup/{lineupId}")
 async def lineup_detail(lineupId: str):
     """
@@ -127,8 +151,16 @@ async def lineup_grid(lineupId: str):
     Allows for up to 6 hours of schedule metadata for a given date up to 14 days in advance.
     """
     lineupAirings = []
-    query_param = "lineups/" + lineupId + "/grid?startDateTime=2025-07-04T18:00Z&endDateTime=2025-07-04T18:15Z&size=basic&"
+    query_param = "lineups/" + lineupId + "/grid?startDateTime=2025-07-09T18:00Z&endDateTime=2025-07-09T18:15Z&size=basic&"
     api_response = await api_call(query_param)
+    result_response = await response_list(api_response, models.Station)
+    if result_response:
+        print("Stations airings:\n ",result_response)
+    else:
+        print("No airings found on the local stations")
+
+    return result_response
+'''
     if isinstance(api_response, list) and api_response: 
         all_airings = api_response
         #print(all_airings)
@@ -143,7 +175,7 @@ async def lineup_grid(lineupId: str):
     else:
         print("No airings found")
         return None
-
+'''
 @app.get("/lineup/{lineupId}/listing")
 async def lineup_channels(lineupId: str):
     """
