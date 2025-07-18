@@ -1,14 +1,15 @@
 from typing import List, Optional
 from fastapi import FastAPI
-from pydantic import BaseModel, ValidationError, Field
+from pydantic import BaseModel, ValidationError
 import httpx
 import json
 ##### import my libraries
-from gn_library import models
+from gn_library import models2, models
 
 base_url: str = "http://data.tmsapi.com/v1.1/"
 api_key: str = "kua9569t57crx43pdan75m8v"
 
+'''
 class Lineups(BaseModel):
     lineupType: str = Field(alias='type')
     lineupDevice: Optional[str]  = Field(alias='device', default=None)
@@ -29,7 +30,7 @@ class Channels(BaseModel):
     channelEdLangs: Optional[str] = Field(alias="edLangs", default=None)
     channelType: Optional[str] = Field(alias="type", default=None)
     channelPreferredImage: Optional[dict[str, str]] = Field(alias='preferredImage', default=None)
-
+'''
 test_data = {
         "type": "VMVPD",
         "device": "X",
@@ -44,7 +45,7 @@ test_data = {
 
 async def api_call(query_params: str):
     """
-    Generic call to master API
+    Generic call to master external API
     """
     q_api_key = "api_key=" + api_key
     api_url = base_url + query_params + q_api_key
@@ -115,7 +116,7 @@ async def lineups_zipcode(zipcode: int):
     print(query_param)
     api_response = await api_call(query_param)
 
-    result_response = await response_list(api_response, Lineups)
+    result_response = await response_list(api_response, models2.Lineup)
     if result_response:
         print("LineUps:\n ",result_response)
     else:
@@ -130,7 +131,7 @@ async def lineup_detail(lineupId: str):
     """
     query_param = "lineups/" + str(lineupId) + "?"
     api_response = await api_call(query_param)
-    result_response = await response_dict(api_response, Lineups)
+    result_response = await response_dict(api_response, models2.Lineup)
     if result_response:
         print("Lineup details:\n ",result_response)
     else:
@@ -160,9 +161,9 @@ async def lineup_grid(lineupId: str):
     Allows for up to 6 hours of schedule metadata for a given date up to 14 days in advance.
     """
     lineupAirings = []
-    query_param = "lineups/" + lineupId + "/grid?startDateTime=2025-07-09T18:00Z&endDateTime=2025-07-09T18:15Z&size=basic&"
+    query_param = "lineups/" + lineupId + "/grid?startDateTime=2025-07-17T18:00Z&endDateTime=2025-07-18T21:15Z&size=basic&stationId=10035&"
     api_response = await api_call(query_param)
-    result_response = await response_list(api_response, models.Station)
+    result_response = await response_list(api_response, models2.Station)
     if result_response:
         print("Stations airings:\n ",result_response)
     else:
@@ -194,7 +195,7 @@ async def lineup_channels(lineupId: str):
     #lineupListing = []
     query_param = "lineups/" + lineupId + "/channels?"
     api_response = await api_call(query_param)
-    result_response = await response_list(api_response, Channels)
+    result_response = await response_list(api_response, models2.LineupChannel)
     if result_response:
         print("Channels available:\n ",result_response)
     else:
@@ -229,7 +230,7 @@ async def sport_detail(SportId:str):
     else:
         query_param = "sports/all?includeOrg=true&"
     api_response = await api_call(query_param)
-    result_response = await response_list(api_response, models.SportModel)
+    result_response = await response_list(api_response, models2.Sport)
     if result_response:
         print("Stations airings:\n ",result_response)
     else:
@@ -265,10 +266,10 @@ async def sports_grid(SportId:str, lineupId:str):
         query_param = "sports/" + str(SportId) + "/events/airings?lineupId=" + lineupId
     else:
         query_param = "sports/all/events/airings?lineupId=" + lineupId
-    query_param += "&startDateTime=2025-07-08T16:00Z&endDateTime=2025-07-08T22:15Z&liveOnly=true&"
+    query_param += "&startDateTime=2025-07-17T16:00Z&endDateTime=2025-07-18T22:15Z&liveOnly=true&"
     print(query_param)
     api_response = await api_call(query_param)
-    result_response = await response_list(api_response, models.Station)
+    result_response = await response_list(api_response, models2.SportAiring)
     if result_response:
         print("Sports airings:\n ",result_response)
     else:

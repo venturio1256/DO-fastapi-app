@@ -1,0 +1,1230 @@
+Lineups by Zipcode: |
+- type: VMVPD
+  device: X
+  lineupId: USA-YTBE751-X
+  name: You Tube Denver
+  location: Denver
+  mso:
+    id: '17843'
+    name: You Tube
+- type: CABLE
+  device: X
+  lineupId: USA-CO05539-X
+  name: Xfinity
+  location: Denver
+  mso:
+    id: 08010
+    name: Comcast Corporation
+- type: VMVPD
+  device: X
+  lineupId: USA-SMSG751-X
+  name: Samsung TV Plus Denver
+  location: Denver
+  mso:
+    id: '17879'
+    name: Samsung
+- type: VMVPD
+  device: X
+  lineupId: USA-HULU751-X
+  name: Hulu Denver
+  location: Denver
+  mso:
+    id: '17842'
+    name: Hulu
+- type: OTA
+  lineupId: USA-OTA80230
+  name: Local Over the Air Broadcast
+- type: SATELLITE
+  device: X
+  lineupId: USA-DISH751-X
+  name: DISH Denver
+  location: Denver
+  mso:
+    id: '17680'
+    name: Dish Network, LLC
+- type: SATELLITE
+  device: X
+  lineupId: USA-DITV-X
+  name: DIRECTV
+  location: USA
+  mso:
+    id: '17580'
+    name: DIRECTV
+- type: VMVPD
+  device: X
+  lineupId: USA-TUBISTR-X
+  name: TUBI TV
+  location: None
+  mso:
+    id: '17867'
+    name: Tubi Corporaction
+
+
+Lineup details: |
+- type: CABLE
+  device: X
+  lineupId: USA-CO05539-X
+  name: Xfinity
+  location: Denver
+  mso:
+    id: 08010
+    name: Comcast Corporation
+
+
+Lineup Channel list: |
+- stationId: '20370'
+  callSign: KWGNDT
+  videoQuality:
+    signalType: Digital
+    truResolution: HD 720p
+    videoType: HDTV
+  affiliateCallSign: CW
+  affiliateId: '51306'
+  channel: '2.1'
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/s53098_ll_h15_ac.png?w=360&h=270
+    category: Logo
+    primary: 'true'
+- stationId: '43074'
+  callSign: KWGNDT2
+  videoQuality:
+    signalType: Digital
+    videoType: SDTV
+  affiliateCallSign: CHARGE
+  affiliateId: '102148'
+  channel: '2.2'
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/s102148_h3_ba.png?w=360&h=270
+    category: Logo
+    primary: 'true'
+- stationId: '97952'
+  callSign: KWGNDT3
+  videoQuality:
+    signalType: Digital
+    videoType: SDTV
+  affiliateCallSign: COMET
+  affiliateId: '97051'
+  channel: '2.3'
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/s97051_h3_aa.png?w=360&h=270
+    category: Logo
+    primary: 'true'
+
+
+Lineup Airings: |
+- stationId: '11867'
+  callSign: TBS
+  channel: 018
+  videoQuality:
+    signalType: Digital
+    videoType: SDTV
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/s11867_ll_h15_ac.png?w=360&h=270
+    category: Logo
+    primary: 'true'
+  airings:
+  - startTime: 2025-07-13T17:30Z
+    endTime: 2025-07-13T19:00Z
+    duration: 90
+    qualifiers:
+    - CC
+    - Live
+    - New
+    channels:
+    - 018
+    stationId: '11867'
+    program:
+      tmsId: SH057734190000
+      rootId: '30135634'
+      seriesId: '30135634'
+      subType: Sports non-event
+      title: FIFA Club World Cup Prematch
+      releaseYear: 2025
+      releaseDate: '2025-06-14'
+      origAirDate: '2025-06-14'
+      titleLang: en
+      descriptionLang: en
+      entityType: Show
+      longDescription: Previewing matches from the FIFA Club World Cup.
+      shortDescription: Previewing matches from the FIFA Club World Cup.
+      preferredImage:
+        width: '240'
+        height: '360'
+        uri: assets/p30135634_b_v12_aa.jpg?w=240&h=360
+        category: Banner-L2
+        text: 'yes'
+        primary: 'true'
+        tier: Series
+  - startTime: 2025-07-13T19:00Z
+    endTime: 2025-07-13T21:00Z
+    duration: 120
+    qualifiers:
+    - CC
+    - Live
+    - New
+    channels:
+    - 018
+    stationId: '11867'
+    program:
+      tmsId: EP056890660063
+      rootId: '29832594'
+      seriesId: '29830205'
+      organizationId: '109270'
+      sportsId: '199'
+      teams:
+      - teamBrandId: '6123'
+        name: Chelsea
+      - teamBrandId: '6279'
+        name: Paris Saint-Germain
+      subType: Sports event
+      title: 2025 FIFA Club World Cup Soccer
+      eventTitle: Chelsea vs. Paris Saint-Germain
+      gameDate: '2025-07-13'
+      gameTime: 15:00:00-04:00
+      gameTimeZone: Eastern Observing
+      titleLang: en
+      descriptionLang: en
+      entityType: Sports
+      genres:
+      - Soccer
+      longDescription: Final.
+      shortDescription: Final.
+      preferredImage:
+        width: '240'
+        height: '360'
+        uri: assets/GNLZZGG0025VJN5.jpg?w=240&h=360
+        category: Banner-L2
+        text: 'yes'
+        primary: 'true'
+        tier: Team Event
+- stationId: '58515'
+  callSign: TBSHD
+  channel: '1434'
+  videoQuality:
+    signalType: Digital
+    truResolution: HD 1080i
+    videoType: HDTV
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/s58515_ll_h15_ac.png?w=360&h=270
+    category: Logo
+    primary: 'true'
+  airings:
+  - startTime: 2025-07-13T17:30Z
+    endTime: 2025-07-13T19:00Z
+    duration: 90
+    qualifiers:
+    - CC
+    - HD 1080i
+    - HDTV
+    - Live
+    - New
+    channels:
+    - '1434'
+    stationId: '58515'
+    program:
+      tmsId: SH057734190000
+      rootId: '30135634'
+      seriesId: '30135634'
+      subType: Sports non-event
+      title: FIFA Club World Cup Prematch
+      releaseYear: 2025
+      releaseDate: '2025-06-14'
+      origAirDate: '2025-06-14'
+      titleLang: en
+      descriptionLang: en
+      entityType: Show
+      longDescription: Previewing matches from the FIFA Club World Cup.
+      shortDescription: Previewing matches from the FIFA Club World Cup.
+      preferredImage:
+        width: '240'
+        height: '360'
+        uri: assets/p30135634_b_v12_aa.jpg?w=240&h=360
+        category: Banner-L2
+        text: 'yes'
+        primary: 'true'
+        tier: Series
+  - startTime: 2025-07-13T19:00Z
+    endTime: 2025-07-13T21:00Z
+    duration: 120
+    qualifiers:
+    - CC
+    - HD 1080i
+    - HDTV
+    - Live
+    - New
+    channels:
+    - '1434'
+    stationId: '58515'
+    program:
+      tmsId: EP056890660063
+      rootId: '29832594'
+      seriesId: '29830205'
+      organizationId: '109270'
+      sportsId: '199'
+      teams:
+      - teamBrandId: '6123'
+        name: Chelsea
+      - teamBrandId: '6279'
+        name: Paris Saint-Germain
+      subType: Sports event
+      title: 2025 FIFA Club World Cup Soccer
+      eventTitle: Chelsea vs. Paris Saint-Germain
+      gameDate: '2025-07-13'
+      gameTime: 15:00:00-04:00
+      gameTimeZone: Eastern Observing
+      titleLang: en
+      descriptionLang: en
+      entityType: Sports
+      genres:
+      - Soccer
+      longDescription: Final.
+      shortDescription: Final.
+      preferredImage:
+        width: '240'
+        height: '360'
+        uri: assets/GNLZZGG0025VJN5.jpg?w=240&h=360
+        category: Banner-L2
+        text: 'yes'
+        primary: 'true'
+        tier: Team Event
+
+
+Station details: |
+- stationId: '10359'
+  callSign: KEYE
+  name: KEYE
+  bcastLangs:
+  - en
+  edLangs:
+  - en
+  type: Full Power Broadcast
+  videoQuality:
+    signalType: Analog
+  affiliateCallSign: CBS
+  affiliateId: '10098'
+  channel: '005'
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/s10098_ll_h15_ac.png?w=360&h=270
+    category: Logo
+    primary: 'true'
+
+
+Stations airings: |
+- startTime: 2025-07-13T17:30Z
+  endTime: 2025-07-13T19:00Z
+  duration: 90
+  qualifiers:
+  - CC
+  - HD 1080i
+  - HDTV
+  - Live
+  - New
+  program:
+    tmsId: SH057734190000
+    rootId: '30135634'
+    seriesId: '30135634'
+    subType: Sports non-event
+    title: FIFA Club World Cup Prematch
+    releaseYear: 2025
+    releaseDate: '2025-06-14'
+    origAirDate: '2025-06-14'
+    titleLang: en
+    descriptionLang: en
+    entityType: Show
+    longDescription: Previewing matches from the FIFA Club World Cup.
+    shortDescription: Previewing matches from the FIFA Club World Cup.
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/p30135634_b_v12_aa.jpg?w=240&h=360
+      category: Banner-L2
+      text: 'yes'
+      primary: 'true'
+      tier: Series
+  station:
+    stationId: '58515'
+    callSign: TBSHD
+    videoQuality:
+      signalType: Digital
+      truResolution: HD 1080i
+      videoType: HDTV
+    preferredImage:
+      width: '360'
+      height: '270'
+      uri: assets/s58515_ll_h15_ac.png?w=360&h=270
+      category: Logo
+      primary: 'true'
+- startTime: 2025-07-13T19:00Z
+  endTime: 2025-07-13T21:00Z
+  duration: 120
+  qualifiers:
+  - CC
+  - HD 1080i
+  - HDTV
+  - Live
+  - New
+  program:
+    tmsId: EP056890660063
+    rootId: '29832594'
+    seriesId: '29830205'
+    organizationId: '109270'
+    sportsId: '199'
+    teams:
+    - teamBrandId: '6123'
+      name: Chelsea
+    - teamBrandId: '6279'
+      name: Paris Saint-Germain
+    subType: Sports event
+    title: 2025 FIFA Club World Cup Soccer
+    eventTitle: Chelsea vs. Paris Saint-Germain
+    gameDate: '2025-07-13'
+    gameTime: 15:00:00-04:00
+    gameTimeZone: Eastern Observing
+    titleLang: en
+    descriptionLang: en
+    entityType: Sports
+    genres:
+    - Soccer
+    longDescription: Final.
+    shortDescription: Final.
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/GNLZZGG0025VJN5.jpg?w=240&h=360
+      category: Banner-L2
+      text: 'yes'
+      primary: 'true'
+      tier: Team Event
+  station:
+    stationId: '58515'
+    callSign: TBSHD
+    videoQuality:
+      signalType: Digital
+      truResolution: HD 1080i
+      videoType: HDTV
+    preferredImage:
+      width: '360'
+      height: '270'
+      uri: assets/s58515_ll_h15_ac.png?w=360&h=270
+      category: Logo
+      primary: 'true'
+
+
+Sports and Organizations: |
+- sportsId: '304'
+  sportsName: 3x3 basketball
+  organizations:
+  - organizationId: '24391'
+    organizationName: FIBA 3x3 Europe Cup 2022
+    preferredImage:
+      uri: sportslogos/generic/generic_sportsevent_h3.png
+    officialOrg: false
+  - organizationId: '24474'
+    organizationName: Women's FIBA 3x3 Europe Cup 2022
+    preferredImage:
+      uri: sportslogos/generic/generic_sportsevent_h3.png
+    officialOrg: false
+  - organizationId: '52351'
+    organizationName: 'Sporza: Basketbal 3x3'
+    preferredImage:
+      uri: sportslogos/generic/generic_sportsevent_h3.png
+    officialOrg: false
+  - organizationId: '53942'
+    organizationName: FIBA 3x3 Basketball World Tour
+    preferredImage:
+      uri: sportslogos/generic/generic_sportsevent_h3.png
+    officialOrg: false
+  - organizationId: '60009'
+    organizationName: FIBA 3x3 AmeriCup 2023
+    preferredImage:
+      uri: sportslogos/generic/generic_sportsevent_h3.png
+    officialOrg: false
+  - organizationId: '70643'
+    organizationName: 2024 FIBA 3x3 Olympic Qualifying Tournament
+    preferredImage:
+      uri: sportslogos/generic/generic_sportsevent_h3.png
+    officialOrg: false
+  - organizationId: '70940'
+    organizationName: 2024 FIBA 3x3 Universality Olympic Qualifying Tournament
+    preferredImage:
+      uri: sportslogos/generic/generic_sportsevent_h3.png
+    officialOrg: false
+  - organizationId: '88651'
+    organizationName: NBB Trio
+    preferredImage:
+      uri: sportslogos/generic/generic_sportsevent_h3.png
+    officialOrg: false
+  - organizationId: '121084'
+    organizationName: 3x3 Basketball Association
+    preferredImage:
+      uri: sportslogos/generic/generic_sportsevent_h3.png
+    officialOrg: false
+
+
+Sports airings: |
+- startTime: 2025-07-13T18:00Z
+  endTime: 2025-07-13T21:00Z
+  duration: 180
+  qualifiers:
+  - Live
+  - New
+  channels:
+  - '013'
+  program:
+    tmsId: EP058129120025
+    rootId: '29832594'
+    seriesId: '29830205'
+    organizationId: '109270'
+    sportsId: '199'
+    teams:
+    - teamBrandId: '6123'
+      name: Chelsea
+    - teamBrandId: '6279'
+      name: Paris Saint-Germain
+    subType: Sports event
+    title: Mundial de Clubes FIFA 2025
+    eventTitle: 'Final: Chelsea vs. Paris Saint-Germain'
+    gameDate: '2025-07-13'
+    gameTime: 15:00:00-04:00
+    gameTimeZone: Eastern Observing
+    titleLang: es
+    descriptionLang: es
+    entityType: Sports
+    genres:
+    - Soccer
+    longDescription: "Chelsea y Paris Saint-Germain se encuentran en la final del\
+      \ Mundial de Clubes de la FIFA 2025 en el MetLife Stadium, Nueva Jersey. The\
+      \ Blues busca su segundo t\xEDtulo mundial desde 2021, mientras que PSG quiere\
+      \ obtener el primero de su historia."
+    shortDescription: Final del Mundial de Clubes de la FIFA 2025. Desde el MetLife
+      Stadium, en Nueva Jersey.
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/GNLZZGG0025VJN5.jpg?w=240&h=360
+      category: Banner-L2
+      text: 'yes'
+      primary: 'true'
+      tier: Team Event
+  stationId: '16358'
+  station:
+    stationId: '16358'
+    callSign: KAKW
+    affiliateCallSign: UNI
+    affiliateId: '11118'
+    videoQuality:
+      signalType: Analog
+    preferredImage:
+      width: '360'
+      height: '270'
+      uri: assets/s11118_h3_ba.png?w=360&h=270
+      category: Logo
+      primary: 'true'
+    channel: '013'
+- startTime: 2025-07-13T18:00Z
+  endTime: 2025-07-13T21:00Z
+  duration: 180
+  qualifiers:
+  - HD 1080i
+  - HDTV
+  - Live
+  - New
+  channels:
+  - '801'
+  program:
+    tmsId: EP058129120025
+    rootId: '29832594'
+    seriesId: '29830205'
+    organizationId: '109270'
+    sportsId: '199'
+    teams:
+    - teamBrandId: '6123'
+      name: Chelsea
+    - teamBrandId: '6279'
+      name: Paris Saint-Germain
+    subType: Sports event
+    title: Mundial de Clubes FIFA 2025
+    eventTitle: 'Final: Chelsea vs. Paris Saint-Germain'
+    gameDate: '2025-07-13'
+    gameTime: 15:00:00-04:00
+    gameTimeZone: Eastern Observing
+    titleLang: es
+    descriptionLang: es
+    entityType: Sports
+    genres:
+    - Soccer
+    longDescription: "Chelsea y Paris Saint-Germain se encuentran en la final del\
+      \ Mundial de Clubes de la FIFA 2025 en el MetLife Stadium, Nueva Jersey. The\
+      \ Blues busca su segundo t\xEDtulo mundial desde 2021, mientras que PSG quiere\
+      \ obtener el primero de su historia."
+    shortDescription: Final del Mundial de Clubes de la FIFA 2025. Desde el MetLife
+      Stadium, en Nueva Jersey.
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/GNLZZGG0025VJN5.jpg?w=240&h=360
+      category: Banner-L2
+      text: 'yes'
+      primary: 'true'
+      tier: Team Event
+  stationId: '34678'
+  station:
+    stationId: '34678'
+    callSign: KAKWDT
+    affiliateCallSign: UNI
+    affiliateId: '11118'
+    videoQuality:
+      signalType: Digital
+      truResolution: HD 1080i
+      videoType: HDTV
+    preferredImage:
+      width: '360'
+      height: '270'
+      uri: assets/s11118_ll_h15_ab.png?w=360&h=270
+      category: Logo
+      primary: 'true'
+    channel: '801'
+- startTime: 2025-07-13T18:00Z
+  endTime: 2025-07-13T21:00Z
+  duration: 180
+  qualifiers:
+  - HD 1080i
+  - HDTV
+  - Live
+  - New
+  channels:
+  - '1224'
+  program:
+    tmsId: EP058129120025
+    rootId: '29832594'
+    seriesId: '29830205'
+    organizationId: '109270'
+    sportsId: '199'
+    teams:
+    - teamBrandId: '6123'
+      name: Chelsea
+    - teamBrandId: '6279'
+      name: Paris Saint-Germain
+    subType: Sports event
+    title: Mundial de Clubes FIFA 2025
+    eventTitle: 'Final: Chelsea vs. Paris Saint-Germain'
+    gameDate: '2025-07-13'
+    gameTime: 15:00:00-04:00
+    gameTimeZone: Eastern Observing
+    titleLang: es
+    descriptionLang: es
+    entityType: Sports
+    genres:
+    - Soccer
+    longDescription: "Chelsea y Paris Saint-Germain se encuentran en la final del\
+      \ Mundial de Clubes de la FIFA 2025 en el MetLife Stadium, Nueva Jersey. The\
+      \ Blues busca su segundo t\xEDtulo mundial desde 2021, mientras que PSG quiere\
+      \ obtener el primero de su historia."
+    shortDescription: Final del Mundial de Clubes de la FIFA 2025. Desde el MetLife
+      Stadium, en Nueva Jersey.
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/GNLZZGG0025VJN5.jpg?w=240&h=360
+      category: Banner-L2
+      text: 'yes'
+      primary: 'true'
+      tier: Team Event
+  stationId: '34678'
+  station:
+    stationId: '34678'
+    callSign: KAKWDT
+    affiliateCallSign: UNI
+    affiliateId: '11118'
+    videoQuality:
+      signalType: Digital
+      truResolution: HD 1080i
+      videoType: HDTV
+    preferredImage:
+      width: '360'
+      height: '270'
+      uri: assets/s11118_ll_h15_ab.png?w=360&h=270
+      category: Logo
+      primary: 'true'
+    channel: '1224'
+- startTime: 2025-07-13T18:00Z
+  endTime: 2025-07-13T21:00Z
+  duration: 180
+  qualifiers:
+  - Live
+  - New
+  channels:
+  - '959'
+  program:
+    tmsId: EP058129120025
+    rootId: '29832594'
+    seriesId: '29830205'
+    organizationId: '109270'
+    sportsId: '199'
+    teams:
+    - teamBrandId: '6123'
+      name: Chelsea
+    - teamBrandId: '6279'
+      name: Paris Saint-Germain
+    subType: Sports event
+    title: Mundial de Clubes FIFA 2025
+    eventTitle: 'Final: Chelsea vs. Paris Saint-Germain'
+    gameDate: '2025-07-13'
+    gameTime: 15:00:00-04:00
+    gameTimeZone: Eastern Observing
+    titleLang: es
+    descriptionLang: es
+    entityType: Sports
+    genres:
+    - Soccer
+    longDescription: "Chelsea y Paris Saint-Germain se encuentran en la final del\
+      \ Mundial de Clubes de la FIFA 2025 en el MetLife Stadium, Nueva Jersey. The\
+      \ Blues busca su segundo t\xEDtulo mundial desde 2021, mientras que PSG quiere\
+      \ obtener el primero de su historia."
+    shortDescription: Final del Mundial de Clubes de la FIFA 2025. Desde el MetLife
+      Stadium, en Nueva Jersey.
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/GNLZZGG0025VJN5.jpg?w=240&h=360
+      category: Banner-L2
+      text: 'yes'
+      primary: 'true'
+      tier: Team Event
+  stationId: '75176'
+  station:
+    stationId: '75176'
+    callSign: TUDNU
+    videoQuality:
+      signalType: Digital
+      videoType: SDTV
+    preferredImage:
+      width: '360'
+      height: '270'
+      uri: assets/s75176_ll_h15_ae.png?w=360&h=270
+      category: Logo
+      primary: 'true'
+    channel: '959'
+
+
+Airings of sports non-event: |
+- startTime: 2025-07-13T20:00Z
+  endTime: 2025-07-13T20:30Z
+  duration: 30
+  channels:
+  - '315'
+  program:
+    tmsId: EP058834630001
+    rootId: '30559356'
+    seriesId: '30559347'
+    sportsId: '199'
+    subType: Sports non-event
+    title: USL Excursions
+    episodeTitle: Westchester SC
+    releaseYear: 2025
+    releaseDate: '2025-07-06'
+    origAirDate: '2025-07-06'
+    titleLang: en
+    entityType: Episode
+    genres:
+    - Soccer
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/p30559347_b_v8_aa.jpg?w=240&h=360
+      category: Banner-L1
+      text: 'yes'
+      primary: 'true'
+      tier: Series
+  stationId: '16365'
+  station:
+    stationId: '16365'
+    callSign: CBSSN
+    videoQuality:
+      signalType: Digital
+      videoType: SDTV
+    preferredImage:
+      width: '360'
+      height: '270'
+      uri: assets/s16365_ll_h15_ae.png?w=360&h=270
+      category: Logo
+      primary: 'true'
+    channel: '315'
+- startTime: 2025-07-13T20:30Z
+  endTime: 2025-07-13T21:00Z
+  duration: 30
+  qualifiers:
+  - New
+  channels:
+  - '315'
+  program:
+    tmsId: EP058834630002
+    rootId: '30611464'
+    seriesId: '30559347'
+    sportsId: '199'
+    subType: Sports non-event
+    title: USL Excursions
+    episodeTitle: Lexington SC
+    releaseYear: 2025
+    releaseDate: '2025-07-13'
+    origAirDate: '2025-07-13'
+    titleLang: en
+    entityType: Episode
+    genres:
+    - Soccer
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/p30559347_b_v8_aa.jpg?w=240&h=360
+      category: Banner-L1
+      text: 'yes'
+      primary: 'true'
+      tier: Series
+  stationId: '16365'
+  station:
+    stationId: '16365'
+    callSign: CBSSN
+    videoQuality:
+      signalType: Digital
+      videoType: SDTV
+    preferredImage:
+      width: '360'
+      height: '270'
+      uri: assets/s16365_ll_h15_ae.png?w=360&h=270
+      category: Logo
+      primary: 'true'
+    channel: '315'
+
+
+Universities: |
+- universityId: '548'
+  universityName: Barry
+  nickName: Buccaneers
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/u548_l_h15_aa.png?w=360&h=270
+    category: Logo
+    primary: 'true'
+    tier: College
+- universityId: '835'
+  universityName: West Chester
+  nickName: Golden Rams
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/u835_l_h15_aa.png?w=360&h=270
+    category: Logo
+    primary: 'true'
+    tier: College
+- universityId: '115'
+  universityName: University of Illinois
+  nickName: Fighting Illini
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/u115_l_h15_ad.png?w=360&h=270
+    category: Logo
+    primary: 'true'
+    tier: College
+- universityId: '3680'
+  universityName: New College of Florida
+  nickName: Mighty Banyans
+  preferredImage:
+    uri: sportslogos/generic/generic_sportsevent_h3.png
+
+
+Teams in an organozation: |
+- width: '360'
+  height: '270'
+  uri: assets/o17_l_h15_ad.png?w=360&h=270
+  category: Logo
+  text: 'yes'
+  primary: 'true'
+  tier: Organization
+- teamBrandId: '13555'
+  teamId: '13488'
+  sportsId: '58'
+  teamBrandName: American League All-Stars
+  nickName: All-Stars
+  properName: American League
+  abbreviation: AL
+- teamBrandId: '6075'
+  teamId: '11'
+  sportsId: '58'
+  teamBrandName: Miami Marlins
+  nickName: Marlins
+  properName: Miami
+  abbreviation: MIA
+- teamBrandId: '6'
+  teamId: '6'
+  sportsId: '58'
+  teamBrandName: Chicago White Sox
+  nickName: White Sox
+  properName: Chicago
+  abbreviation: CHW
+
+
+Teams at Universities: |
+- teamBrandId: '18767'
+  teamId: '18656'
+  sportsId: '215'
+  teamBrandName: Air Force
+  nickName: Falcons
+  properName: Air Force
+  abbreviation: AFA
+  university:
+    universityId: '1'
+    universityName: United States Air Force Academy
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/u1_l_h15_ad.png?w=360&h=270
+    category: Logo
+    text: 'yes'
+    primary: 'true'
+    tier: College
+- teamBrandId: '16209'
+  teamId: '16116'
+  sportsId: '118'
+  teamBrandName: Air Force
+  nickName: Falcons
+  properName: Air Force
+  abbreviation: AFA
+  university:
+    universityId: '1'
+    universityName: United States Air Force Academy
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/u1_l_h15_ad.png?w=360&h=270
+    category: Logo
+    text: 'yes'
+    primary: 'true'
+    tier: College
+- teamBrandId: '4126'
+  teamId: '4126'
+  sportsId: '199'
+  teamBrandName: Air Force
+  nickName: Falcons
+  properName: Air Force
+  abbreviation: AFA
+  university:
+    universityId: '1'
+    universityName: United States Air Force Academy
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/u1_l_h15_ad.png?w=360&h=270
+    category: Logo
+    text: 'yes'
+    primary: 'true'
+    tier: College
+- teamBrandId: '3305'
+  teamId: '3305'
+  sportsId: '221'
+  teamBrandName: Air Force
+  nickName: Falcons
+  properName: Air Force
+  abbreviation: AFA
+  university:
+    universityId: '1'
+    universityName: United States Air Force Academy
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/u1_l_h15_ad.png?w=360&h=270
+    category: Logo
+    text: 'yes'
+    primary: 'true'
+    tier: College
+- teamBrandId: '3989'
+  teamId: '3989'
+  sportsId: '122'
+  teamBrandName: Air Force
+  nickName: Falcons
+  properName: Air Force
+  abbreviation: AFA
+  university:
+    universityId: '1'
+    universityName: United States Air Force Academy
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/u1_l_h15_ad.png?w=360&h=270
+    category: Logo
+    text: 'yes'
+    primary: 'true'
+    tier: College
+
+
+Team details: |
+- teamBrandId: '4125'
+  teamId: '4125'
+  sportsId: '221'
+  teamBrandName: Air Force
+  nickName: Falcons
+  properName: Air Force
+  abbreviation: AFA
+  university:
+    universityId: '1'
+    universityName: United States Air Force Academy
+  preferredImage:
+    width: '360'
+    height: '270'
+    uri: assets/u1_l_h15_ad.png?w=360&h=270
+    category: Logo
+    text: 'yes'
+    primary: 'true'
+    tier: College
+
+
+Team airings: |
+- startTime: 2025-07-12T20:00Z
+  endTime: 2025-07-12T22:00Z
+  duration: 120
+  qualifiers:
+  - CC
+  - Live
+  - New
+  channels:
+  - '052'
+  program:
+    tmsId: EP009390371390
+    rootId: '30599640'
+    seriesId: '191276'
+    organizationId: '19'
+    sportsId: '59'
+    teams:
+    - teamBrandId: '405'
+      name: Dallas Mavericks
+    - teamBrandId: '425'
+      name: San Antonio Spurs
+    subType: Sports event
+    title: NBA Summer League Basketball
+    eventTitle: Dallas Mavericks vs. San Antonio Spurs
+    gameDate: '2025-07-12'
+    gameTime: 13:00:00-07:00
+    gameTimeZone: Pacific Observing
+    titleLang: en
+    descriptionLang: en
+    entityType: Sports
+    genres:
+    - Basketball
+    longDescription: From Thomas & Mack Center in Las Vegas.
+    shortDescription: From Thomas & Mack Center in Las Vegas.
+    season:
+      content: '2025'
+      type: Reg
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/GNLZZGG00259HRM.jpg?w=240&h=360
+      category: Banner-L2
+      text: 'yes'
+      primary: 'true'
+      tier: Team Event
+  stationId: '20384'
+  station:
+    stationId: '20384'
+    callSign: ESPNLO1
+    preferredImage:
+      uri: sources/generic/generic_sources_h3.png
+    channel: '052'
+- startTime: 2025-07-12T20:00Z
+  endTime: 2025-07-12T22:00Z
+  duration: 120
+  qualifiers:
+  - CC
+  - Live
+  - New
+  channels:
+  - '300'
+  program:
+    tmsId: EP009390371390
+    rootId: '30599640'
+    seriesId: '191276'
+    organizationId: '19'
+    sportsId: '59'
+    teams:
+    - teamBrandId: '405'
+      name: Dallas Mavericks
+    - teamBrandId: '425'
+      name: San Antonio Spurs
+    subType: Sports event
+    title: NBA Summer League Basketball
+    eventTitle: Dallas Mavericks vs. San Antonio Spurs
+    gameDate: '2025-07-12'
+    gameTime: 13:00:00-07:00
+    gameTimeZone: Pacific Observing
+    titleLang: en
+    descriptionLang: en
+    entityType: Sports
+    genres:
+    - Basketball
+    longDescription: From Thomas & Mack Center in Las Vegas.
+    shortDescription: From Thomas & Mack Center in Las Vegas.
+    season:
+      content: '2025'
+      type: Reg
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/GNLZZGG00259HRM.jpg?w=240&h=360
+      category: Banner-L2
+      text: 'yes'
+      primary: 'true'
+      tier: Team Event
+  stationId: '10179'
+  station:
+    stationId: '10179'
+    callSign: ESPN
+    videoQuality:
+      signalType: Digital
+      videoType: SDTV
+    preferredImage:
+      width: '360'
+      height: '270'
+      uri: assets/s10179_h3_aa.png?w=360&h=270
+      category: Logo
+      primary: 'true'
+    channel: '300'
+
+
+Organisation Airings: |
+- startTime: 2025-07-13T18:00Z
+  endTime: 2025-07-13T21:00Z
+  duration: 180
+  qualifiers:
+  - Live
+  - New
+  channels:
+  - '013'
+  program:
+    tmsId: EP058129120025
+    rootId: '29832594'
+    seriesId: '29830205'
+    organizationId: '109270'
+    sportsId: '199'
+    teams:
+    - teamBrandId: '6123'
+      name: Chelsea
+    - teamBrandId: '6279'
+      name: Paris Saint-Germain
+    subType: Sports event
+    title: Mundial de Clubes FIFA 2025
+    eventTitle: 'Final: Chelsea vs. Paris Saint-Germain'
+    gameDate: '2025-07-13'
+    gameTime: 15:00:00-04:00
+    gameTimeZone: Eastern Observing
+    titleLang: es
+    descriptionLang: es
+    entityType: Sports
+    genres:
+    - Soccer
+    longDescription: "Chelsea y Paris Saint-Germain se encuentran en la final del\
+      \ Mundial de Clubes de la FIFA 2025 en el MetLife Stadium, Nueva Jersey. The\
+      \ Blues busca su segundo t\xEDtulo mundial desde 2021, mientras que PSG quiere\
+      \ obtener el primero de su historia."
+    shortDescription: Final del Mundial de Clubes de la FIFA 2025. Desde el MetLife
+      Stadium, en Nueva Jersey.
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/GNLZZGG0025VJN5.jpg?w=240&h=360
+      category: Banner-L2
+      text: 'yes'
+      primary: 'true'
+      tier: Team Event
+  stationId: '16358'
+  station:
+    stationId: '16358'
+    callSign: KAKW
+    affiliateCallSign: UNI
+    affiliateId: '11118'
+    videoQuality:
+      signalType: Analog
+    preferredImage:
+      width: '360'
+      height: '270'
+      uri: assets/s11118_h3_ba.png?w=360&h=270
+      category: Logo
+      primary: 'true'
+    channel: '013'
+- startTime: 2025-07-13T18:00Z
+  endTime: 2025-07-13T21:00Z
+  duration: 180
+  qualifiers:
+  - HD 1080i
+  - HDTV
+  - Live
+  - New
+  channels:
+  - '801'
+  program:
+    tmsId: EP058129120025
+    rootId: '29832594'
+    seriesId: '29830205'
+    organizationId: '109270'
+    sportsId: '199'
+    teams:
+    - teamBrandId: '6123'
+      name: Chelsea
+    - teamBrandId: '6279'
+      name: Paris Saint-Germain
+    subType: Sports event
+    title: Mundial de Clubes FIFA 2025
+    eventTitle: 'Final: Chelsea vs. Paris Saint-Germain'
+    gameDate: '2025-07-13'
+    gameTime: 15:00:00-04:00
+    gameTimeZone: Eastern Observing
+    titleLang: es
+    descriptionLang: es
+    entityType: Sports
+    genres:
+    - Soccer
+    longDescription: "Chelsea y Paris Saint-Germain se encuentran en la final del\
+      \ Mundial de Clubes de la FIFA 2025 en el MetLife Stadium, Nueva Jersey. The\
+      \ Blues busca su segundo t\xEDtulo mundial desde 2021, mientras que PSG quiere\
+      \ obtener el primero de su historia."
+    shortDescription: Final del Mundial de Clubes de la FIFA 2025. Desde el MetLife
+      Stadium, en Nueva Jersey.
+    preferredImage:
+      width: '240'
+      height: '360'
+      uri: assets/GNLZZGG0025VJN5.jpg?w=240&h=360
+      category: Banner-L2
+      text: 'yes'
+      primary: 'true'
+      tier: Team Event
+  stationId: '34678'
+  station:
+    stationId: '34678'
+    callSign: KAKWDT
+    affiliateCallSign: UNI
+    affiliateId: '11118'
+    videoQuality:
+      signalType: Digital
+      truResolution: HD 1080i
+      videoType: HDTV
+    preferredImage:
+      width: '360'
+      height: '270'
+      uri: assets/s11118_ll_h15_ab.png?w=360&h=270
+      category: Logo
+      primary: 'true'
+    channel: '801'
+
+
