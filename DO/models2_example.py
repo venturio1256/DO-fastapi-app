@@ -1,7 +1,7 @@
 from typing import List, Optional, Any
 from pydantic import BaseModel, Field
 from fastapi import FastAPI, Query
-import datetime
+from datetime import datetime
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -69,8 +69,8 @@ class Program(BaseModel):
 
 class Airing(BaseModel):
     """Pydantic model for airing details."""
-    startTime: datetime.datetime
-    endTime: datetime.datetime
+    startTime: datetime
+    endTime: datetime
     duration: int
     qualifiers: Optional[List[str]] = None
     channels: Optional[List[str]] = None
@@ -121,8 +121,8 @@ class Station(BaseModel):
 
 class StationAiring(BaseModel):
     """Pydantic model for airings on a station."""
-    startTime: datetime.datetime
-    endTime: datetime.datetime
+    startTime: datetime
+    endTime: datetime
     duration: int
     qualifiers: Optional[List[str]] = None
     program: Program
@@ -143,8 +143,8 @@ class Sport(BaseModel):
 
 class SportAiring(BaseModel):
     """Pydantic model for sports airings."""
-    startTime: datetime.datetime
-    endTime: datetime.datetime
+    startTime: datetime
+    endTime: datetime
     duration: int
     qualifiers: Optional[List[str]] = None
     channels: Optional[List[str]] = None
@@ -154,8 +154,8 @@ class SportAiring(BaseModel):
 
 class SportNonEventAiring(BaseModel):
     """Pydantic model for airings of sports non-events."""
-    startTime: datetime.datetime
-    endTime: datetime.datetime
+    startTime: datetime
+    endTime: datetime
     duration: int
     channels: Optional[List[str]] = None
     program: Program
@@ -212,8 +212,8 @@ class TeamDetail(BaseModel):
 
 class TeamAiring(BaseModel):
     """Pydantic model for team airings."""
-    startTime: datetime.datetime
-    endTime: datetime.datetime
+    startTime: datetime
+    endTime: datetime
     duration: int
     qualifiers: Optional[List[str]] = None
     channels: Optional[List[str]] = None
@@ -223,8 +223,8 @@ class TeamAiring(BaseModel):
 
 class OrganizationAiring(BaseModel):
     """Pydantic model for organization airings."""
-    startTime: datetime.datetime
-    endTime: datetime.datetime
+    startTime: datetime
+    endTime: datetime
     duration: int
     qualifiers: Optional[List[str]] = None
     channels: Optional[List[str]] = None

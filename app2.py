@@ -9,28 +9,6 @@ from gn_library import models2, models
 base_url: str = "http://data.tmsapi.com/v1.1/"
 api_key: str = "kua9569t57crx43pdan75m8v"
 
-'''
-class Lineups(BaseModel):
-    lineupType: str = Field(alias='type')
-    lineupDevice: Optional[str]  = Field(alias='device', default=None)
-    lineupId: str = Field(alias='lineupId')
-    lineupName: str = Field(alias='name')
-    lineupLocation: Optional[str] = Field(alias='location', default=None)
-    lineupMso: Optional[dict[str, str]] = Field(alias='mso', default=None)
-
-class Channels(BaseModel):
-    channelId: str = Field(alias="channel")
-    channelCallSign: str = Field(alias="callSign")
-    channelStationId: str = Field(alias="stationId")
-    channelAffiliateCallSign: Optional[str] = Field(alias="affiliateCallSign", default=None)
-    channelAffiliateId: Optional[str] = Field(alias="affiliateId", default=None)
-    channelSecondaryAffiliateIds: Optional[str] = Field(alias="secondaryAffiliateIds", default=None)
-    channelName: Optional[str] = Field(alias="name", default=None)
-    channelBcastLangs: Optional[str] = Field(alias="bcastLangs", default=None)
-    channelEdLangs: Optional[str] = Field(alias="edLangs", default=None)
-    channelType: Optional[str] = Field(alias="type", default=None)
-    channelPreferredImage: Optional[dict[str, str]] = Field(alias='preferredImage', default=None)
-'''
 test_data = {
         "type": "VMVPD",
         "device": "X",
@@ -43,9 +21,83 @@ test_data = {
         }
     }
 
+tools = [
+{
+    "type": "function",
+    "function": {
+        "name": "get_lineup_details",
+        "description": "Returns details for a given lineup",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "lineupId": {
+                    "type": "string",
+                    "description": "The lineup id."
+                }
+            },
+            "required": ["lineupId"]
+        }
+    }
+},
+{
+    "type": "function",
+    "function": {
+        "name": "get_lineup_grid",
+        "description": "Returns schedule airing and associated program metadata for a lineup to be contained within a TV grid. \nAllows for up to 6 hours of schedule metadata for a given date up to 14 days in advance.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "lineupId": {
+                    "type": "string",
+                    "description": "The lineup id."
+                }
+            },
+            "required": ["lineupId"]
+        }
+    }
+},
+
+{
+    "type": "function",
+    "function": {
+        "name": "get_lineup_listing",
+        "description": "Returns a list of stations and channel positions associated with the lineup provided.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "lineupId": {
+                    "type": "string",
+                    "description": "The lineup id."
+                }
+            },
+            "required": ["lineupId"]
+        }
+    }
+},
+{
+    "type": "function",
+    "function": {
+        "name": "get_sports_details",
+        "description": "Returns all (or specified) sports details with associated organizations.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "SportId": {
+                    "type": "string",
+                    "description": "The sports Ids."
+                }
+            },
+            "required": ["SportId"]
+        }
+    }
+}
+
+    
+]
+
 async def api_call(query_params: str):
     """
-    Generic call to master external API
+    Master function call to external API
     """
     q_api_key = "api_key=" + api_key
     api_url = base_url + query_params + q_api_key
@@ -85,6 +137,10 @@ async def response_list(api_response, model):
         return None
         
 async def response_dict(api_response, model):
+    '''
+    Handling of the API response in dictionary format.
+    return the JSON under List object based on BaseModel
+    '''
     if isinstance(api_response,dict) and api_response:
         respDict = {}
         apidicts = api_response
@@ -104,6 +160,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
+    '''Welcome message for the API root endpoint.''' 
     return {"message": "Welcome to venturio Labs/v1/test "}
 
 @app.get("/zipcode/{zipcode}")
@@ -139,21 +196,7 @@ async def lineup_detail(lineupId: str):
 
     return result_response
 
-    '''
-    if isinstance(api_response,dict) and api_response:
-        all_details = api_response
-        lineupDetails = {}
-        try:
-            lineupDetails = Lineups(**all_details)
-            print(lineupDetails)
-            return lineupDetails
-        except ValidationError as e:
-            print(f"Error mapping {e}")
-            return None
-    else:
-        print("No Lineup details found")
-        return None
-    '''
+
 @app.get("/lineup/{lineupId}/airings")
 async def lineup_grid(lineupId: str):
     """
@@ -170,22 +213,7 @@ async def lineup_grid(lineupId: str):
         print("No airings found on the local stations")
 
     return result_response
-'''
-    if isinstance(api_response, list) and api_response: 
-        all_airings = api_response
-        #print(all_airings)
-        try:
-            for airing in all_airings:
-                print("Airing ",airing)
-                lineupAirings.append(models.Station(**airing))
-            return lineupAirings
-        except ValidationError as e:
-            print(f"Error mapping {e}")
-            return None
-    else:
-        print("No airings found")
-        return None
-'''
+
 @app.get("/lineup/{lineupId}/listing")
 async def lineup_channels(lineupId: str):
     """
@@ -202,23 +230,7 @@ async def lineup_channels(lineupId: str):
         print("No channels found on the local stations")
 
     return result_response
-    '''
-    if isinstance(api_response, list) and api_response: 
-        all_channels = api_response
-        #print(all_channels)
-        try:
-            for channel in all_channels:
-                print(channel)
-                lineupListing.append(Channels(**channel))
-            return lineupListing
-        except ValidationError as e:
-            print(f"Error mapping {e}")
-            return None
-    
-    else:
-        print("No channels found")
-        return None
-    '''
+
 @app.get("/sports/{SportId}")
 async def sport_detail(SportId:str):
     """
@@ -237,23 +249,6 @@ async def sport_detail(SportId:str):
         print("No airings found on the local stations")
 
     return result_response
-'''    
-    if isinstance(api_response,list):
-        all_sports = api_response
-        #print(all_sports)
-        sportDetails = []
-        try:
-            for sport in all_sports:
-                sportDetails.append(models.SportModel(**sport))
-            print(sportDetails)
-            return sportDetails
-        except ValidationError as e:
-            print(f"Error mapping {e}")
-            return None
-    else:
-        print("api_response ", type(api_response))
-        return None
-'''
 
 @app.get("/sports/{SportId}/events/airings")
 async def sports_grid(SportId:str, lineupId:str):
