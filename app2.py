@@ -204,7 +204,7 @@ async def lineup_grid(lineupId: str):
     Allows for up to 6 hours of schedule metadata for a given date up to 14 days in advance.
     """
     lineupAirings = []
-    query_param = "lineups/" + lineupId + "/grid?startDateTime=2025-07-17T18:00Z&endDateTime=2025-07-18T21:15Z&size=basic&stationId=10035&"
+    query_param = "lineups/" + lineupId + "/grid?startDateTime=2025-10-01T00:00Z&endDateTime=2025-10-03T01:00Z&size=basic&stationId=10035&"
     api_response = await api_call(query_param)
     result_response = await response_list(api_response, models2.Station)
     if result_response:
@@ -261,7 +261,7 @@ async def sports_grid(SportId:str, lineupId:str):
         query_param = "sports/" + str(SportId) + "/events/airings?lineupId=" + lineupId
     else:
         query_param = "sports/all/events/airings?lineupId=" + lineupId
-    query_param += "&startDateTime=2025-07-17T16:00Z&endDateTime=2025-07-18T22:15Z&liveOnly=true&"
+    query_param += "&startDateTime=2025-10-01T00:00Z&endDateTime=2025-10-03T01:00Z&liveOnly=true&"
     print(query_param)
     api_response = await api_call(query_param)
     result_response = await response_list(api_response, models2.SportAiring)
