@@ -4,7 +4,7 @@ from pydantic import BaseModel, ValidationError
 import httpx
 import json
 ##### import my libraries
-from gn_library import models2, models
+from gn_library import models2
 
 base_url: str = "http://data.tmsapi.com/v1.1/"
 api_key: str = "kua9569t57crx43pdan75m8v"
