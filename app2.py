@@ -250,7 +250,7 @@ async def sport_detail(SportId:str):
 
     return result_response
 
-@app.get("/sports/{SportId}/events/airings")
+@app.get("/sports/{SportId}/events/airings/{lineupId}")
 async def sports_grid(SportId:str, lineupId:str):
     """
     Returns schedule airing and associated program metadata for one or several sports to be contained within a TV grid. 
