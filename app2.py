@@ -256,6 +256,7 @@ async def sports_grid(SportId:str, lineupId:str):
     Returns schedule airing and associated program metadata for one or several sports to be contained within a TV grid. 
     Allows for up to 6 hours of schedule metadata for a given date up to 14 days in advance.
     """
+    print(lineupId, SportId)
     sports = SportId.split(",")
     if sports:
         query_param = "sports/" + str(SportId) + "/events/airings?lineupId=" + lineupId
